@@ -90,7 +90,7 @@ echo "Pair" >> README.md
 git add .
 git commit -m "feat: pair programming
 
-Co-Authored-By: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" > /dev/null 2>&1
+Co-Authored-By: TakatoPhy <TakatoPhy@users.noreply.github.com>" > /dev/null 2>&1
 git push -u origin pair > /dev/null 2>&1
 gh pr create -t "Pair PR" -b "Co-authored commit" > /dev/null 2>&1
 gh pr merge --merge --yes > /dev/null 2>&1
