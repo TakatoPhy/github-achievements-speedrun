@@ -12,7 +12,7 @@ Get 4 GitHub achievements in under 5 minutes.
 > Close an issue/PR within 5 minutes of opening
 
 ```bash
-gh repo create test-quickdraw --public -y && \
+gh repo create test-quickdraw --public && \
 gh issue create -R $(gh api user -q .login)/test-quickdraw -t "test" -b "test" | xargs -I {} gh issue close {} -R $(gh api user -q .login)/test-quickdraw && \
 gh repo delete $(gh api user -q .login)/test-quickdraw --yes
 ```
@@ -22,13 +22,13 @@ gh repo delete $(gh api user -q .login)/test-quickdraw --yes
 
 ```bash
 REPO="test-pullshark-$(date +%s)"
-gh repo create $REPO --public -y && cd /tmp && git clone "https://github.com/$(gh api user -q .login)/$REPO" && cd $REPO && \
+gh repo create $REPO --public && cd /tmp && git clone "https://github.com/$(gh api user -q .login)/$REPO" && cd $REPO && \
 echo "# PR 1" > file1.txt && git add . && git commit -m "add file1" && git push && \
 git checkout -b pr1 && echo "change1" >> file1.txt && git add . && git commit -m "change1" && git push -u origin pr1 && \
-gh pr create -t "PR1" -b "test" && gh pr merge --merge --yes && \
+gh pr create -t "PR1" -b "test" && gh pr merge --merge && \
 git checkout main && git pull && \
 git checkout -b pr2 && echo "change2" >> file1.txt && git add . && git commit -m "change2" && git push -u origin pr2 && \
-gh pr create -t "PR2" -b "test" && gh pr merge --merge --yes && \
+gh pr create -t "PR2" -b "test" && gh pr merge --merge && \
 cd ~ && gh repo delete $(gh api user -q .login)/$REPO --yes
 ```
 
@@ -37,14 +37,14 @@ cd ~ && gh repo delete $(gh api user -q .login)/$REPO --yes
 
 ```bash
 REPO="test-pair-$(date +%s)"
-gh repo create $REPO --public -y && cd /tmp && git clone "https://github.com/$(gh api user -q .login)/$REPO" && cd $REPO && \
+gh repo create $REPO --public && cd /tmp && git clone "https://github.com/$(gh api user -q .login)/$REPO" && cd $REPO && \
 echo "# Pair" > file.txt && git add . && git commit -m "init" && git push && \
 git checkout -b feature && echo "collab" >> file.txt && git add . && \
 git commit -m "feat: add feature
 
 Co-Authored-By: Your Friend <friend@example.com>" && \
 git push -u origin feature && \
-gh pr create -t "Pair PR" -b "test" && gh pr merge --merge --yes && \
+gh pr create -t "Pair PR" -b "test" && gh pr merge --merge && \
 cd ~ && gh repo delete $(gh api user -q .login)/$REPO --yes
 ```
 
@@ -55,10 +55,10 @@ cd ~ && gh repo delete $(gh api user -q .login)/$REPO --yes
 
 ```bash
 REPO="test-yolo-$(date +%s)"
-gh repo create $REPO --public -y && cd /tmp && git clone "https://github.com/$(gh api user -q .login)/$REPO" && cd $REPO && \
+gh repo create $REPO --public && cd /tmp && git clone "https://github.com/$(gh api user -q .login)/$REPO" && cd $REPO && \
 echo "# YOLO" > file.txt && git add . && git commit -m "init" && git push && \
 git checkout -b yolo && echo "yolo" >> file.txt && git add . && git commit -m "yolo" && git push -u origin yolo && \
-gh pr create -t "YOLO" -b "no review needed" && gh pr merge --merge --yes && \
+gh pr create -t "YOLO" -b "no review needed" && gh pr merge --merge && \
 cd ~ && gh repo delete $(gh api user -q .login)/$REPO --yes
 ```
 
