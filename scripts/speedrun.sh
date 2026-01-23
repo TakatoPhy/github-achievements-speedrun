@@ -27,7 +27,7 @@ echo ""
 # Create temp repo
 REPO="achievements-speedrun-$(date +%s)"
 echo "📦 Creating temporary repo: $REPO"
-gh repo create "$REPO" --public -y > /dev/null 2>&1
+gh repo create "$REPO" --public > /dev/null 2>&1
 
 cd /tmp
 rm -rf "$REPO"
@@ -56,7 +56,7 @@ echo "PR1" >> README.md
 git add . && git commit -m "PR 1" > /dev/null 2>&1
 git push -u origin pr1 > /dev/null 2>&1
 gh pr create -t "PR 1" -b "First PR" > /dev/null 2>&1
-gh pr merge --merge --yes > /dev/null 2>&1
+gh pr merge --merge > /dev/null 2>&1
 echo "   ✅ PR 1 merged"
 
 git checkout main && git pull > /dev/null 2>&1
@@ -65,7 +65,7 @@ echo "PR2" >> README.md
 git add . && git commit -m "PR 2" > /dev/null 2>&1
 git push -u origin pr2 > /dev/null 2>&1
 gh pr create -t "PR 2" -b "Second PR" > /dev/null 2>&1
-gh pr merge --merge --yes > /dev/null 2>&1
+gh pr merge --merge > /dev/null 2>&1
 echo "   ✅ PR 2 merged"
 echo "   ✅ Pull Shark unlocked!"
 
@@ -78,7 +78,7 @@ echo "YOLO" >> README.md
 git add . && git commit -m "YOLO commit" > /dev/null 2>&1
 git push -u origin yolo > /dev/null 2>&1
 gh pr create -t "YOLO" -b "No review needed" > /dev/null 2>&1
-gh pr merge --merge --yes > /dev/null 2>&1
+gh pr merge --merge > /dev/null 2>&1
 echo "   ✅ YOLO - PR merged without review"
 
 # 👥 Pair Extraordinaire
@@ -93,7 +93,7 @@ git commit -m "feat: pair programming
 Co-Authored-By: TakatoPhy <TakatoPhy@users.noreply.github.com>" > /dev/null 2>&1
 git push -u origin pair > /dev/null 2>&1
 gh pr create -t "Pair PR" -b "Co-authored commit" > /dev/null 2>&1
-gh pr merge --merge --yes > /dev/null 2>&1
+gh pr merge --merge > /dev/null 2>&1
 echo "   ✅ Pair Extraordinaire - Co-authored PR merged"
 
 # Cleanup
